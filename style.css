@@ -22,3 +22,14 @@ body {
 .quiz-card{
     width: 25rem;
 }
+
+.quiz-answer-card:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: 125ms;
+}
+
+.bg-success, .bg-danger{
+    color: white;
+    transition: 1000ms;
+}

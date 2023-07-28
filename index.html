@@ -16,7 +16,7 @@
     <title>Quizapp</title>
 </head>
 
-<body>
+<body onload="init();">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">QuizApp</span>
@@ -27,37 +27,37 @@
         <div class="card quiz-card">
             <img src="img/pencil.jpg" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">Frage</h5>
+                <h5 class="card-title" id="questiontext">Frage</h5>
 
-                <div class="card mb-2">
-                    <div class="card-body">
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
+                    <div class="card-body" id="answer_1">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
+                    <div class="card-body" id="answer_2">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
+                    <div class="card-body" id="answer_3">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
+                    <div class="card-body" id="answer_4">
                         Antwort
                     </div>
                 </div>
 
                 <div class="question-footer">
                     <span>
-                        <b>1</b> von <b>5</b> Fragen
+                        <b>1</b> von <b id="all-questions"></b> Fragen
                     </span>
-                    <button class="btn btn-primary btn-lg">Nächste Frage</button>
+                    <button id="next-button" class="btn btn-primary btn-lg" disabled>Nächste Frage</button>
                 </div>
 
 
