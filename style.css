@@ -1,10 +1,10 @@
 body {
-    background-color: yellow !important;
+    background-color: blue !important;
 }
 
 .container {
     min-height: 100vh;
-    background-color: yellow !important;
+    background-color: lightblue !important;
     /*#FEFAEF*/
     display: flex;
     justify-content: center;
