@@ -4,12 +4,111 @@ body {
 
 .container {
     min-height: 100vh;
-    background-color: lightblue !important;
-    /*#FEFAEF*/
+    background-color: #FEFAEF !important;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.sidebar-question-card{
+    display: flex;
+}
+
+
+.sidebar{
+    background-color: #27355C;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Rubik', sans-serif;
+}
+
+.logo{
+    padding-top: 24px;
+    width: 70%;
+}
+
+.orange-btn-box{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-orange{
+    background-color: #FF4C12;
+    border: 0;
+    margin-top: 24px;
+}
+
+.backgroundStart{
+    background-image: url(Quizapp_Dark/brainbg.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex; justify-content: center; 
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+}
+
+.endScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brain{
+    width: 96px;
+    margin-bottom: 48px;
+}
+
+.tropy{
+    height: 180px;
+    position: absolute;
+    right: 0;
+    top: 96px;
+}
+
+.score{
+    display: flex;
+    gap: 12px;
+    font-weight: 700;
+}
+
+/* NavLink */
+
+.Categorys{
+    display: flex;
+    flex-direction: column;
+}
+
+.navLink1{
+    position: relative;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 24px;
+}
+
+.navLink1:after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 0;
+    width: 5px;
+    left: 0;
+    bottom: 30px;
+    transition: 125ms;
+  }
+
+  .navLink1:hover{
+    color: white;
+  }
+
+  .navLink1:hover:after{
+    height: 30%;
+  }
 
 .question-footer{
     display: flex;
@@ -20,7 +119,12 @@ body {
 }
 
 .quiz-card{
-    width: 25rem;
+    /* max-width: 25rem; */
+    width: 400px;
+}
+
+.quiz-answer-card{
+    border-radius: 0;
 }
 
 .quiz-answer-card:hover{
@@ -32,4 +136,57 @@ body {
 .bg-success, .bg-danger{
     color: white;
     transition: 1000ms;
+}
+
+.answerDiv{
+    display: flex;
+    align-items: center;
+}
+
+.succes-modified{
+    background-color: #B7F799;
+}
+
+.danger-modified{
+    background-color: #ffa9a9;
+}
+
+.flex-gap{
+    display: flex;
+    gap: 48px;
+}
+
+.letterBox{
+    background-color: #D6D6D6;
+    padding: 12px;
+    height: 48px;
+    width: 48px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.arrowForth, .arrowPrevious{
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+    background-position: center;
+}
+
+.d-none{
+    display: none;
+}
+
+@media(max-width: 599px) {
+    .hide-mobile{
+        display: none;
+    }
+
+    .smaller-mobile{
+        width: 100%;
+    }
 }

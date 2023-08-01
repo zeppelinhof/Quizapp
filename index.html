@@ -8,6 +8,9 @@
     <!-- Bootsrap files from Homepage -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
@@ -24,45 +27,91 @@
     </nav>
 
     <div class="container">
-        <div class="card quiz-card">
-            <img src="img/pencil.jpg" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title" id="questiontext">Frage</h5>
+        <div class="sidebar-question-card">
+            <div class="sidebar">
+                <img class="logo" src="Quizapp_Dark/logo.png">
+                <div class="Categorys">
+                    <a class="navLink1" onclick="location.reload();" href="#">Bibel</a>
+                    <a class="navLink1" href="#">Natur</a>
+                    <a class="navLink1" href="#">Wirtschaft</a>
+                </div>
+            </div>
+            <div class="card quiz-card smaller-mobile">
 
-                <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
-                    <div class="card-body" id="answer_1">
-                        Antwort
+                <div class="card-body backgroundStart" id="startScreen">
+                    <div><b>Welcome to <br> The Awesome Quiz</b><br>Ready for the Challenge?</div>
+                    <div class="orange-btn-box">
+                        <button onclick="addDisplayNone('startScreen'); removeDisplayNone('startGame')" type="button" class="btn btn-primary btn-orange">START NOW ></button>
                     </div>
                 </div>
 
-                <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
-                    <div class="card-body" id="answer_2">
-                        Antwort
+
+                <div id="startGame" style="display: none;">
+                    <img id="header-image" src="img/crosses.jpg" class="card-img-top">
+
+                    <div class="progress" id="progress">
+                        <div class="progress-bar" id="progress-bar" style="width: 0%">%</div>
+                    </div>
+
+                    <!-- hier war der ENdscreem -->
+
+                    <div class="card-body" id="questionBody">
+                        <h5 class="card-title" id="questiontext">Frage</h5>
+
+                        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
+                            <div class="card-body flex-gap">
+                                <div class="letterBox">A</div>
+                                <div class="answerDiv" id="answer_1"></div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
+                            <div class="card-body flex-gap">
+                                <div class="letterBox">B</div>
+                                <div class="answerDiv" id="answer_2"></div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
+                            <div class="card-body flex-gap">
+                                <div class="letterBox">C</div>
+                                <div class="answerDiv" id="answer_3"></div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
+                            <div class="card-body flex-gap">
+                                <div class="letterBox">D</div>
+                                <div class="answerDiv" id="answer_4"></div>
+                            </div>
+                        </div>
+
+                        <div class="question-footer">
+                            <span>
+                                <b id="question-number">1</b> von <b id="all-questions"></b> Fragen
+                            </span>
+                            <div id="next-button">
+                                <img id="previousArrrow" class="arrowPrevious" onclick="previousQuestion();" src="img/back.png">
+                                <img id="nextArrrow" class="arrowForth " onclick="nextQuestion();" src="img/forth.png">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
-                    <div class="card-body" id="answer_3">
-                        Antwort
+                <div class="card-body" id="endScreen" style="display: none;">
+                    <div class="endScreen">
+                        <img class="brain" src="Quizapp_Dark/brain result.png">
+                        <div><b>COMPLETE QUIZ</b></div>
+                        <div class="score">
+                            <div style="color: orange;">YOUR SCORE</div>
+                            <div><b id="amount-of-right-questions"></b>/ <b id="amount-of-questions"></b></div>
+                        </div>
+                        <button type="button" class="btn btn-primary">SHARE</button>
+                        <div onclick="location.reload();" style="color: #2F3D9E; cursor: pointer;">REPLAY</div>
+                        <img class="tropy hide-mobile" src="Quizapp_Dark/tropy.png">
                     </div>
                 </div>
-
-                <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
-                    <div class="card-body" id="answer_4">
-                        Antwort
-                    </div>
-                </div>
-
-                <div class="question-footer">
-                    <span>
-                        <b id="question-number">1</b> von <b id="all-questions"></b> Fragen
-                    </span>
-                    <button id="next-button" onclick="nextQuestion();" class="btn btn-primary btn-lg" disabled>Nächste Frage</button>
-                </div>
-
-
-
-
             </div>
         </div>
     </div>
