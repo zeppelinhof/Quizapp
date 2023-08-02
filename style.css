@@ -1,9 +1,10 @@
 body {
-    background-color: blue !important;
+    background-color: #FEFAEF;
+    margin: 0;
 }
 
 .container {
-    min-height: 100vh;
+    margin-top: 20px;
     background-color: #FEFAEF !important;
     display: flex;
     justify-content: center;
@@ -31,7 +32,9 @@ body {
 
 .orange-btn-box{
     width: 100%;
+    height: 100%;
     display: flex;
+    align-items: flex-end;
     justify-content: flex-end;
 }
 
@@ -179,6 +182,18 @@ body {
 
 .d-none{
     display: none;
+}
+
+.hidingAnswers{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 30%;
+    z-index: 999;
+}
+
+.z-index-1{
+    z-index: -1;
 }
 
 @media(max-width: 599px) {

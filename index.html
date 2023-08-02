@@ -41,7 +41,8 @@
                 <div class="card-body backgroundStart" id="startScreen">
                     <div><b>Welcome to <br> The Awesome Quiz</b><br>Ready for the Challenge?</div>
                     <div class="orange-btn-box">
-                        <button onclick="addDisplayNone('startScreen'); removeDisplayNone('startGame')" type="button" class="btn btn-primary btn-orange">START NOW ></button>
+                        <button onclick="addDisplayNone('startScreen'); removeDisplayNone('startGame')" type="button"
+                            class="btn btn-primary btn-orange">START NOW ></button>
                     </div>
                 </div>
 
@@ -53,37 +54,38 @@
                         <div class="progress-bar" id="progress-bar" style="width: 0%">%</div>
                     </div>
 
-                    <!-- hier war der ENdscreem -->
-
                     <div class="card-body" id="questionBody">
                         <h5 class="card-title" id="questiontext">Frage</h5>
-
-                        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
-                            <div class="card-body flex-gap">
-                                <div class="letterBox">A</div>
-                                <div class="answerDiv" id="answer_1"></div>
+                        <div style="position: relative;">
+                            <div id="hidingAnswers" class="hidingAnswers z-index-1"></div>
+                            <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')" id="answer_one">
+                                <div class="card-body flex-gap">
+                                    <div class="letterBox">A</div>
+                                    <div class="answerDiv" id="answer_1"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
-                            <div class="card-body flex-gap">
-                                <div class="letterBox">B</div>
-                                <div class="answerDiv" id="answer_2"></div>
+                            <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')" id="answer_two">
+                                <div class="card-body flex-gap">
+                                    <div class="letterBox">B</div>
+                                    <div class="answerDiv" id="answer_2"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
-                            <div class="card-body flex-gap">
-                                <div class="letterBox">C</div>
-                                <div class="answerDiv" id="answer_3"></div>
+                            <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')" id="answer_three">
+                                <div class="card-body flex-gap">
+                                    <div class="letterBox">C</div>
+                                    <div class="answerDiv" id="answer_3"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
-                            <div class="card-body flex-gap">
-                                <div class="letterBox">D</div>
-                                <div class="answerDiv" id="answer_4"></div>
+                            <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')" id="answer_four">
+                                <div class="card-body flex-gap">
+                                    <div class="letterBox">D</div>
+                                    <div class="answerDiv" id="answer_4"></div>
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="question-footer">
@@ -91,9 +93,8 @@
                                 <b id="question-number">1</b> von <b id="all-questions"></b> Fragen
                             </span>
                             <div id="next-button">
-                                <img id="previousArrrow" class="arrowPrevious" onclick="previousQuestion();" src="img/back.png">
                                 <img id="nextArrrow" class="arrowForth " onclick="nextQuestion();" src="img/forth.png">
-                                
+
                             </div>
                         </div>
                     </div>

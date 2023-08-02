@@ -30,7 +30,7 @@ let questions = [
         "answer_3": "Pflanzen",
         "answer_4": "Sterne",
         "right_answer": 2,
-    }    
+    }
 ];
 
 let currentQuestion = 0;
@@ -38,43 +38,42 @@ let rightQuestions = 0;
 let AUDIO_SUCCESS = new Audio('audio/success.mp3');
 let AUDIO_FAIL = new Audio('audio/wrong.mp3');
 
-function init(){
+function init() {
     document.getElementById('all-questions').innerHTML = questions.length;
     showQuestion();
 }
 
-function showQuestion(){
+function showQuestion() {
 
-    if(gameIsOver()){
-        showEndscreen();   
+    if (gameIsOver()) {
+        showEndscreen();
     }
-    else{
+    else {
         updateProgressBar();
         updateToNextQuestion();
-        enablePreviousArrow(currentQuestion);
     }
-    
+
 }
 
-function gameIsOver(){
+function gameIsOver() {
     return currentQuestion >= questions.length;
 }
 
-function showEndscreen(){
+function showEndscreen() {
     document.getElementById('endScreen').style = '';
     document.getElementById('startGame').style = 'display: none';
     document.getElementById('amount-of-questions').innerHTML = questions.length;
     document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
 }
 
-function updateProgressBar(){
+function updateProgressBar() {
     let percent = Math.round((currentQuestion + 1) * 100 / questions.length);
 
     document.getElementById('progress-bar').innerHTML = `${percent} %`;
     document.getElementById('progress-bar').style = `width: ${percent}%;`;
 }
 
-function updateToNextQuestion(){
+function updateToNextQuestion() {
     let question = questions[currentQuestion];
     document.getElementById('question-number').innerHTML = currentQuestion + 1;
     document.getElementById('questiontext').innerHTML = question['question'];
@@ -84,19 +83,20 @@ function updateToNextQuestion(){
     document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
 
-function answer(selection){
+function answer(selection) {
+    hideAnswers();
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
     question.selection = selectedQuestionNumber;
-    let idOfRightAnswer = `answer_${question['right_answer']}`
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
 
-    if(rightAnswerSelected(selectedQuestionNumber, question)){
+    if (rightAnswerSelected(selectedQuestionNumber, question)) {
         document.getElementById(selection).parentNode.classList.add('succes-modified');
         AUDIO_SUCCESS.play();
         rightQuestions++;
     }
 
-    else{
+    else {
         document.getElementById(selection).parentNode.classList.add('danger-modified');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('succes-modified');
         AUDIO_FAIL.play();
@@ -105,25 +105,21 @@ function answer(selection){
     document.getElementById('next-button').disabled = false;
 }
 
-function rightAnswerSelected(selectedQuestionNumber, question){
+
+function rightAnswerSelected(selectedQuestionNumber, question) {
     return selectedQuestionNumber == question['right_answer'];
 }
 
-function nextQuestion(){
+function nextQuestion() {
     currentQuestion++;
     document.getElementById('next-button').disabled = true;
     resetAnswerButtons();
-    showQuestion();    
+    showQuestion();
+    showAnswers();
 }
 
-function previousQuestion(){
-    currentQuestion--;
-    document.getElementById('next-button').disabled = true;
-    resetAnswerButtons();
-    showQuestion();    
-}
 
-function resetAnswerButtons(){
+function resetAnswerButtons() {
     document.getElementById('next-button').disabled = true;
     document.getElementById('answer_1').parentNode.classList.remove('danger-modified');
     document.getElementById('answer_1').parentNode.classList.remove('succes-modified');
@@ -135,23 +131,18 @@ function resetAnswerButtons(){
     document.getElementById('answer_4').parentNode.classList.remove('succes-modified');
 }
 
-function removeDisplayNone(element){
+function removeDisplayNone(element) {
     document.getElementById(element).style = '';
 }
 
-
-
-function addDisplayNone(element){
+function addDisplayNone(element) {
     document.getElementById(element).classList.add('d-none');
 }
 
-function enablePreviousArrow(i){
-    if(i<1){
-        document.getElementById('previousArrrow').classList.add('d-none');
-    }
+function hideAnswers(){
+    document.getElementById('hidingAnswers').classList.remove('z-index-1');
+}
 
-    else{
-        document.getElementById('previousArrrow').classList.remove('d-none');
-    }
-    
+function showAnswers(){
+    document.getElementById('hidingAnswers').classList.add('z-index-1');
 }
